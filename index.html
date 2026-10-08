@@ -161,7 +161,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; margin-bottom: 40px">
 <div>
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Portfolio</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">Selected Work</h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">Latest Work</h2>
 </div>
 <div role="group" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
@@ -177,14 +177,14 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div class="pimg-inner" style="{{ p.imgStyle }}">
 <div style="{{ p.shapeA }}"></div>
 <div style="{{ p.shapeB }}"></div>
-<span style="position: absolute; left: 18px; bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: {{ p.labelColor }}">[ Add project mockup ]</span>
+<img src="evervibe cover.png" alt="Evervibe Brand Identity" style="width: 100%; height: 100%; object-fit: cover;">
 </div>
 </div>
 <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1">
 <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B4A46">{{ p.category }}</span>
 <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 23px; line-height: 1.2; color: #1E3B30">{{ p.name }}</h3>
 <p style="margin: 0; font-size: 15px; color: #4F5F57">{{ p.line }}</p>
-<button class="btn" type="button" onClick="{{ p.open }}" style="margin-top: 12px; align-self: flex-start; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1E3B30; background: transparent; color: #1E3B30; font: 600 14px 'DM Sans', 'Helvetica Neue', sans-serif; cursor: pointer">View case study</button>
+<button class="btn" type="button" onClick="{{ p.open }}" style="margin-top: 12px; align-self: flex-start; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #1E3B30; background: transparent; color: #1E3B30; font: 600 14px 'DM Sans', 'Helvetica Neue', sans-serif; cursor: pointer">View work</button>
 </div>
 </article>
 </sc-for>
