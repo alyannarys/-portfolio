@@ -346,7 +346,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <!-- PROJECT MODAL -->
 <sc-if value="{{ hasOpen }}" hint-placeholder-val="{{ false }}">
 <div style="position: fixed; inset: 0; z-index: 50; background: rgba(15,34,25,0.55); display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box">
-<div role="dialog" aria-modal="true" aria-label="{{ cur.name }}" style="background: #F6F1EA; border-radius: 28px; width: 100%; max-width: 760px; max-height: 88vh; overflow-y: auto; box-shadow: 0 30px 80px -30px rgba(0,0,0,.5)">
+<div role="dialog" aria-modal="true" aria-label="{{ cur.name }}" style="background: #F6F1EA; border-radius: 28px; width: 100%; max-width: 1100px; max-height: 92vh; overflow-y: auto; box-shadow: 0 30px 80px -30px rgba(0,0,0,.5)">
 <div style="{{ cur.heroStyle }}">
 <sc-if value="{{ cur.image }}">
 <img src="{{ cur.image }}" alt="{{ cur.name }}" style="width: 100%; height: 100%; object-fit: cover;">
@@ -377,7 +377,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { filter: 'All', openId: null };
+    this.state = { filter: 'All', openId: null, slideIndex: 0 };
   }
   renderVals() {
     const G = '#1E3B30', P = '#E7C4BE', C = '#F6F1EA', S = '#D9CBB8';
@@ -420,6 +420,7 @@ result: 'A cohesive brand identity that reflects EverVibe’s mission to bring p
     const all = projects.map(look);
     const visible = f === 'All' ? all : all.filter((p) => p.category === f);
     const cur = all.find((p) => p.id === this.state.openId) || all[0];
+    const currentSlide = cur.slides ? cur.slides[this.state.slideIndex] : cur.image;
     return {
       filters, visible, cur,
       hasOpen: this.state.openId !== null,
