@@ -355,6 +355,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="padding: 32px clamp(22px, 4vw, 44px) 40px">
 <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B4A46">{{ cur.category }}</span>
 <h3 style="margin: 8px 0 8px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.1; color: #1E3B30">{{ cur.name }}</h3>
+<a href="{{ cur.pdf }}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin: 8px 0 16px; padding: 12px 18px; border-radius: 999px; background: #1E3B30; color: #F6F1EA; text-decoration: none; font: 600 14px 'DM Sans', 'Helvetica Neue', sans-serif;">View Brand Guidelines PDF</a>
 <p style="margin: 0 0 28px; color: #4F5F57">{{ cur.line }}</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px">
 <div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">The challenge</h4><p style="margin: 0; font-size: 15px">{{ cur.challenge }}</p></div>
@@ -378,7 +379,7 @@ class Component extends DCLogic {
   renderVals() {
     const G = '#1E3B30', P = '#E7C4BE', C = '#F6F1EA', S = '#D9CBB8';
     const projects = [
-      { id: 'brand', name: 'Evervibe Brand Identity', category: 'Design', line: 'Brand identity and visual direction for Evervibe.', image: 'evervibe cover.png', bg: G, a: P, b: C, label: '#E7C4BE',
+      { id: 'brand', name: 'Evervibe Brand Identity', category: 'Design', line: 'Brand identity and visual direction for Evervibe.', image: 'evervibe cover.png', pdf: 'Evervibe Brand Guidelines.pdf', bg: G, a: P, b: C, label: '#E7C4BE',
         challenge: '[What problem did the client have? e.g. an inconsistent look across channels.]', did: '[Your role and process — research, concepts, final identity, guidelines.]', tools: 'Adobe Illustrator, Photoshop, Figma', result: '[The outcome — what changed for the client, with real numbers if you have them.]' },
       { id: 'social', name: 'Social Media Content Kit', category: 'Content', line: 'Templated post series and a monthly content calendar.', bg: P, a: G, b: C, label: '#3E2522',
         challenge: '[What was the content goal or gap?]', did: '[Planning, templates, captions, scheduling — what you owned.]', tools: 'Canva, Figma, Metricool, Loomly', result: '[Engagement, consistency, or time saved.]' },
