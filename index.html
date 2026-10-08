@@ -382,7 +382,8 @@ class Component extends DCLogic {
   renderVals() {
     const G = '#1E3B30', P = '#E7C4BE', C = '#F6F1EA', S = '#D9CBB8';
     const projects = [
-      { id: 'brand', name: 'Evervibe Brand Identity', category: 'Design', line: 'Brand identity and visual direction for Evervibe.', image: 'evervibe cover.png', pdf: 'Evervibe Brand Guidelines.pdf', bg: G, a: P, b: C, label: '#E7C4BE',
+      { id: 'brand', name: 'Evervibe Brand Identity', category: 'Design', line: 'Brand identity and visual direction for Evervibe.', image: 'evervibe cover.png', image: 'evervibe cover.png',
+slides: Array.from({ length: 19 }, (_, i) => `evervibe-${i + 1}.png`),
         challenge: 'EverVibe is a brand dedicated to bringing older adults together through the power of music. It celebrates meaningful connections, shared memories, and a sense of belonging.',
 did: 'I developed a visual identity centered on warmth, harmony, and connection. The logo combines the letters E and V in a flowing design that resembles two people coming together, symbolizing unity and the shared joy of music.',
 tools: 'Brand Identity, Logo Design, Visual Direction, Brand Guidelines',
