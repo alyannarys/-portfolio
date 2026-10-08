@@ -408,7 +408,7 @@ result: 'A cohesive brand identity that reflects EverVibe’s mission to bring p
     const look = (p) => ({
       ...p,
       imgStyle: 'position:absolute;inset:0;background:' + p.bg + ';',
-      heroStyle: 'position:relative;height:240px;overflow:hidden;border-radius:28px 28px 0 0;background:' + p.bg + ';',
+      heroStyle: 'position:relative;height:min(65vh,650px);overflow:hidden;border-radius:28px 28px 0 0;background:' + p.bg + ';',
       shapeA: 'position:absolute;left:14%;top:16%;width:52%;height:58%;border-radius:14px;background:' + p.a + ';box-shadow:0 18px 40px -20px rgba(0,0,0,.35);',
       shapeB: 'position:absolute;right:10%;top:30%;width:26%;aspect-ratio:3/5;border-radius:16px;background:' + p.b + ';box-shadow:0 18px 40px -20px rgba(0,0,0,.35);',
       labelColor: p.label,
