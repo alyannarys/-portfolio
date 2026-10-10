@@ -56,7 +56,13 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <!-- HERO -->
 <section id="home" style="max-width: 1180px; margin: 0 auto; padding: 96px 24px 104px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
 <div class="rise" style="flex: 999 1 520px; min-width: 0">
-<p style="margin: 0 0 20px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Creative Virtual Assistant  ||  Design & Marketing Support</p>
+<div class="rotating-title">
+  <div class="rotating-title-track">
+    <span>Creative Virtual Assistant</span>
+    <span>Design &amp; Marketing Support</span>
+    <span>Creative Virtual Assistant</span>
+  </div>
+</div>
 
 <h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.02; letter-spacing: -0.03em; color: #1E3B30">
   <span class="typing-heading">Hello, I'm <em>Alyanna!</em></span>
@@ -88,6 +94,51 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 <!-- ANIMATED TOOL LOGOS -->
 <style>
+
+/* Rotating job title */
+.rotating-title {
+  height: 24px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6B4A46;
+  line-height: 24px;
+}
+
+.rotating-title-track {
+  display: flex;
+  flex-direction: column;
+  animation: rotateJobTitle 6s infinite;
+}
+
+.rotating-title-track span {
+  display: block;
+  height: 24px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@keyframes rotateJobTitle {
+  0%, 35% {
+    transform: translateY(0);
+  }
+  45%, 85% {
+    transform: translateY(-24px);
+  }
+  95%, 100% {
+    transform: translateY(-48px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-title-track {
+    animation: none;
+  }
+}  
+  
 @keyframes heroLogoScroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
