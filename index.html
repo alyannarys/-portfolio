@@ -96,7 +96,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 .typing-heading {
   display: inline-block;
   position: relative;
-  white-space: nowrap;
+  white-space: normal;
   padding: 0 14px 12px 0;
   margin-bottom: -12px;
   clip-path: inset(0 100% -16px 0);
@@ -191,16 +191,15 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     animation: none;
   }
 }
-  
 
 .about-typing {
   display: inline-block;
   position: relative;
-  white-space: nowrap;
   padding: 0 12px 10px 0;
   clip-path: none;
+  max-width: 260px;
+  line-height: 1.08;
 }
-
 
 .about-typing.is-visible {
   animation: aboutType 2s steps(17, end) forwards;
@@ -281,7 +280,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="flex: 1 1 300px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">My story</p>
 <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">
-  <span class="about-typing">A little <em>about me</em></span>
+<span class="about-typing">A little <em style="display: block;">about me</em></span>
 </h2>
 <div style="margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap">
 <span style="border: 1px solid rgba(231,196,190,.45); border-radius: 999px; padding: 6px 16px; font-size: 14px">Since 2017</span>
