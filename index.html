@@ -94,16 +94,16 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 }
 
 
-
-
 .typing-heading {
   display: inline-block;
   position: relative;
   white-space: nowrap;
-  padding-bottom: 5px;
-  clip-path: inset(0 100% 0 0);
+  padding: 0 14px 12px 0;
+  margin-bottom: -12px;
+  clip-path: inset(0 100% -16px 0);
   animation: typeHello 2s steps(19, end) forwards;
 }
+
 
 .typing-heading::after {
   content: "";
@@ -117,9 +117,14 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 
 @keyframes typeHello {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
+  from {
+    clip-path: inset(0 100% -16px 0);
+  }
+  to {
+    clip-path: inset(0 0 -16px 0);
+  }
 }
+
 
 @keyframes blinkCursor {
   50% { border-color: transparent; }
