@@ -95,22 +95,29 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 
 
+
 .typing-heading {
   display: inline-block;
-  overflow: hidden;
-  padding-bottom: 12px;
+  position: relative;
   white-space: nowrap;
-  width: 0;
-  max-width: 100%;
+  padding-bottom: 5px;
+  clip-path: inset(0 100% 0 0);
+  animation: typeHello 2s steps(19, end) forwards;
+}
+
+.typing-heading::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 5%;
+  height: 85%;
   border-right: 3px solid #1E3B30;
-  animation:
-    typeHello 2s steps(19, end) forwards,
-    blinkCursor 0.75s step-end 4;
+  animation: blinkCursor 0.75s step-end 4;
 }
 
 @keyframes typeHello {
-  from { width: 0; }
-  to { width: 15ch; }
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
 }
 
 @keyframes blinkCursor {
@@ -119,11 +126,14 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 @media (prefers-reduced-motion: reduce) {
   .typing-heading {
-    width: auto;
+    clip-path: none;
     animation: none;
-    border-right: none;
+  }
+  .typing-heading::after {
+    display: none;
   }
 }
+
   
 
 .hero-logo-marquee {
