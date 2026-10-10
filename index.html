@@ -196,13 +196,13 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   display: inline-block;
   position: relative;
   padding: 0 12px 10px 0;
-  clip-path: none;
+  opacity: 0;
   max-width: 260px;
   line-height: 1.08;
 }
 
 .about-typing.is-visible {
-  animation: aboutType 2s steps(17, end) forwards;
+  animation: aboutType 2s ease forwards;
 }
 
 .about-typing::after {
