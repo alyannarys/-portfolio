@@ -622,7 +622,7 @@ const prevSlide = () => this.setState({ slideIndex: (this.state.slideIndex - 1 +
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
 
     observer.observe(heading);
     return true;
