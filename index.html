@@ -307,6 +307,47 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     display: none;
   }
 }
+
+/* Services typing animation */
+.services-typing {
+  display: inline-block;
+  position: relative;
+  padding-right: 7px;
+  clip-path: inset(0 100% 0 0);
+}
+
+@keyframes servicesType {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.services-typing.is-visible {
+  animation: servicesType 2.4s steps(20, end) forwards;
+}
+
+/* Blinking cursor */
+.services-typing.is-visible::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 3px;
+  height: 80%;
+  background: #1E3B30;
+  animation: blinkCursor 0.8s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-typing {
+    clip-path: none;
+  }
+  .services-typing.is-visible {
+    animation: none;
+  }
+  .services-typing.is-visible::after {
+    display: none;
+  }
+}
   
 </style>
 
@@ -370,7 +411,9 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; margin-bottom: 52px">
 <div>
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Services</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">What I Can Help With</h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">
+  <span class="services-typing">What I Can Help With</span>
+</h2>
 </div>
 <p style="margin: 0; max-width: 380px; color: #4F5F57">Three ways I support teams — pick one, or let me cover the creative and the coordination together.</p>
 </div>
@@ -738,5 +781,39 @@ const prevSlide = () => this.setState({ slideIndex: (this.state.slideIndex - 1 +
   });
 })();
 </script>
+
+<script>
+(function () {
+  function setupServicesAnimation() {
+    const heading = document.querySelector('.services-typing');
+    if (!heading) return false;
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(heading);
+    return true;
+  }
+
+  window.addEventListener('load', function () {
+    if (!setupServicesAnimation()) {
+      const watcher = new MutationObserver(function () {
+        if (setupServicesAnimation()) watcher.disconnect();
+      });
+      watcher.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+  });
+})();
+</script>
+  
 </body>
 </html>
