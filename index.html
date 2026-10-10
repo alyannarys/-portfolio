@@ -108,10 +108,11 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 .typing-heading::after {
   content: "";
   position: absolute;
-  right: -10px;
+  right: 5px;
   top: 5%;
-  height: 85%;
-  border-right: 3px solid #1E3B30;
+  height: 75%;
+  width: 3px;
+  background: #1E3B30;
   animation: blinkCursor 0.8s step-end 2s infinite;
 }
 
@@ -125,9 +126,10 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   }
 }
 
-
 @keyframes blinkCursor {
-  50% { border-color: transparent; }
+  50% {
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
