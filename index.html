@@ -191,279 +191,6 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     animation: none;
   }
 }
-
-
-.about-typing {
-  display: inline-block;
-  position: relative;
-  padding: 0 12px 10px 0;
-  opacity: 1;
-  max-width: 260px;
-  line-height: 1.08;
-}
-
-@keyframes typeFirstLine {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes typeSecondLine {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.about-typing {
-  clip-path: none;
-}
-
-.about-typing.is-visible {
-  animation: none;
-}
-
-.about-typing {
-  visibility: hidden;
-}
-
-.about-typing.is-visible {
-  visibility: visible;
-}
-
-.about-typing.is-visible .about-line-one {
-  animation: typeFirstLine 1.2s steps(8, end) both;
-}
-
-.about-typing.is-visible .about-line-two {
-  animation: typeSecondLine 1.2s steps(8, end) 1.2s both;
-}
-
-.about-line-one,
-.about-line-two {
-  display: block;
-  width: fit-content;
-}
-
-/* Blinking typing cursor */
-@keyframes aboutCursorBlink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.about-line-one,
-.about-line-two {
-  position: relative;
-  width: fit-content;
-}
-
-/* Cursor on first line */
-.about-typing.is-visible .about-line-one::after {
-  content: "";
-  display: inline-block;
-  width: 3px;
-  height: 0.85em;
-  margin-left: 4px;
-  background: #F6F1EA;
-  vertical-align: -0.05em;
-  animation: aboutCursorBlink 0.8s step-end infinite;
-}
-
-/* Hide first cursor when second line starts */
-.about-typing.is-visible .about-line-one::after {
-  animation:
-    aboutCursorBlink 0.8s step-end 0s 1,
-    hideFirstCursor 0s linear 1.2s forwards;
-}
-
-@keyframes hideFirstCursor {
-  to {
-    visibility: hidden;
-  }
-}
-
-/* Cursor on second line */
-.about-typing.is-visible .about-line-two::after {
-  content: "";
-  display: inline-block;
-  width: 3px;
-  height: 0.85em;
-  margin-left: 4px;
-  background: #F6F1EA;
-  vertical-align: -0.05em;
-  opacity: 0;
-  animation: showSecondCursor 0s linear 1.2s forwards,
-             aboutCursorBlink 0.8s step-end 1.2s infinite;
-}
-
-@keyframes showSecondCursor {
-  to {
-    opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .about-typing.is-visible .about-line-one::after,
-  .about-typing.is-visible .about-line-two::after {
-    animation: none;
-    display: none;
-  }
-}
-
-/* Services typing animation */
-.services-typing {
-  display: inline-block;
-  position: relative;
-  padding-right: 7px;
-  clip-path: none;
-}
-
-@keyframes servicesType {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.services-typing.is-visible {
-  animation: servicesType 2.4s steps(20, end) forwards;
-}
-
-/* Blinking cursor */
-.services-typing.is-visible::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 10%;
-  width: 3px;
-  height: 80%;
-  background: #1E3B30;
-  animation: blinkCursor 0.8s step-end infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .services-typing {
-    clip-path: none;
-  }
-  .services-typing.is-visible {
-    animation: none;
-  }
-  .services-typing.is-visible::after {
-    display: none;
-  }
-}
-
-/* Latest Work typing animation */
-.work-typing {
-  display: inline-block;
-  position: relative;
-  white-space: nowrap;
-  padding-right: 8px;
-}
-
-@keyframes workType {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.work-typing.is-visible {
-  animation: workType 1.6s steps(11, end) both;
-}
-
-.work-typing.is-visible::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 10%;
-  width: 3px;
-  height: 80%;
-  background: #1E3B30;
-  animation: blinkCursor 0.8s step-end infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .work-typing.is-visible {
-    animation: none;
-  }
-
-  .work-typing.is-visible::after {
-    display: none;
-  }
-}  
-
-/* Experience heading typing animation */
-.experience-typing {
-  display: inline-block;
-  position: relative;
-  max-width: 100%;
-  padding-right: 8px;
-}
-
-@keyframes experienceType {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.experience-typing.is-visible {
-  animation: experienceType 3s steps(40, end) both;
-}
-
-/* Cream blinking cursor */
-.experience-typing.is-visible::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 5%;
-  width: 3px;
-  height: 85%;
-  background: #F6F1EA;
-  animation: blinkCursor 0.8s step-end infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .experience-typing.is-visible {
-    animation: none;
-  }
-
-  .experience-typing.is-visible::after {
-    display: none;
-  }
-}
-
-/* Creative heading typing animation */
-.creative-typing {
-  display: inline-block;
-  position: relative;
-  max-width: 100%;
-  padding-right: 8px;
-}
-
-@keyframes creativeType {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-.creative-typing.is-visible {
-  animation: creativeType 2.8s steps(30, end) both;
-}
-
-/* Dark green blinking cursor */
-.creative-typing.is-visible::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 5%;
-  width: 3px;
-  height: 85%;
-  background: #1E3B30;
-  animation: blinkCursor 0.8s step-end infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .creative-typing.is-visible {
-    animation: none;
-  }
-
-  .creative-typing.is-visible::after {
-    display: none;
-  }
-}
   
 </style>
 
@@ -502,12 +229,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="max-width: 1180px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
 <div style="flex: 1 1 300px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">My story</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">
-<span class="about-typing">
-  <span class="about-line-one">A little</span>
-  <em class="about-line-two">about me</em>
-</span>
-</h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA"> A little <em style="display: block;">about me</em></h2>
 <div style="margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap">
 <span style="border: 1px solid rgba(231,196,190,.45); border-radius: 999px; padding: 6px 16px; font-size: 14px">Since 2017</span>
 <span style="border: 1px solid rgba(231,196,190,.45); border-radius: 999px; padding: 6px 16px; font-size: 14px">International clients</span>
@@ -527,9 +249,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; margin-bottom: 52px">
 <div>
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Services</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">
-  <span class="services-typing">What I Can Help With</span>
-</h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30"><span class="services-typing">What I Can Help With</span></h2>
 </div>
 <p style="margin: 0; max-width: 380px; color: #4F5F57">Three ways I support teams — pick one, or let me cover the creative and the coordination together.</p>
 </div>
@@ -583,9 +303,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; margin-bottom: 40px">
 <div>
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Portfolio</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">
-  <span class="work-typing">Latest Work</span>
-</h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">Latest Work</span></h2>
 </div>
 <div role="group" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
@@ -676,9 +394,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <section style="background: #1E3B30; color: #EDE6DC">
 <div style="max-width: 1180px; margin: 0 auto; padding: 104px 24px">
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">Experience</p>
-<h2 style="margin: 0 0 56px; max-width: 720px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">
-  <span class="experience-typing">8 Years of Creative + Project Experience</span>
-</h2>
+<h2 style="margin: 0 0 56px; max-width: 720px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">8 Years of Creative + Project Experience</span></h2>
 <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px 24px">
 <li style="border-top: 2px solid #E7C4BE; padding-top: 20px">
 <div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: #E7C4BE; line-height: 1.1">2017</div>
@@ -707,9 +423,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <!-- WHY -->
 <section style="max-width: 1180px; margin: 0 auto; padding: 104px 24px 88px">
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Why work with me</p>
-<h2 style="margin: 0 0 48px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">
-  <span class="creative-typing">The creative <em>and</em> the organized</span>
-</h2>
+<h2 style="margin: 0 0 48px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">The creative <em>and</em> the organized</span></h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
 <div class="lift" style="background: #FFFFFF; border-radius: 22px; padding: 30px 26px; border: 1px solid rgba(30,59,48,0.08)">
 <div style="width: 44px; height: 44px; border-radius: 14px; background: #E7C4BE; display: flex; align-items: center; justify-content: center; margin-bottom: 20px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E3B30" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"></path></svg></div>
