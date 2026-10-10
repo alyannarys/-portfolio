@@ -192,6 +192,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   }
 }
 
+
 .about-typing {
   display: inline-block;
   position: relative;
@@ -201,6 +202,20 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   line-height: 1.08;
 }
 
+@keyframes aboutScrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-typing.is-visible {
+  animation: aboutScrollReveal 1.5s ease both;
+}
 
 </style>
 
