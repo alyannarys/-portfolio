@@ -93,7 +93,6 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   to { transform: translateX(-50%); }
 }
 
-
 .typing-heading {
   display: inline-block;
   position: relative;
@@ -192,6 +191,57 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     animation: none;
   }
 }
+
+  
+.about-typing {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  padding: 0 12px 10px 0;
+  clip-path: inset(0 100% -15px 0);
+}
+
+.about-typing.is-visible {
+  animation: aboutType 2s steps(17, end) forwards;
+}
+
+.about-typing::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  top: 5%;
+  height: 75%;
+  width: 2px;
+  background: #E7C4BE;
+  opacity: 0;
+}
+
+.about-typing.is-visible::after {
+  animation: aboutBlink 0.8s step-end 2s infinite;
+}
+
+@keyframes aboutType {
+  from { clip-path: inset(0 100% -15px 0); }
+  to { clip-path: inset(0 0 -15px 0); }
+}
+
+@keyframes aboutBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-typing {
+    clip-path: none;
+  }
+  .about-typing.is-visible {
+    animation: none;
+  }
+  .about-typing::after {
+    display: none;
+  }
+}
+
 </style>
 
 <div class="hero-logo-marquee" aria-label="Tools I work with">
@@ -229,7 +279,9 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="max-width: 1180px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
 <div style="flex: 1 1 300px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">My story</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">A little <em>about me</em></h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">
+  <span class="about-typing">A little <em>about me</em></span>
+</h2>
 <div style="margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap">
 <span style="border: 1px solid rgba(231,196,190,.45); border-radius: 999px; padding: 6px 16px; font-size: 14px">Since 2017</span>
 <span style="border: 1px solid rgba(231,196,190,.45); border-radius: 999px; padding: 6px 16px; font-size: 14px">International clients</span>
@@ -580,6 +632,23 @@ const prevSlide = () => this.setState({ slideIndex: (this.state.slideIndex - 1 +
     };
   }
 }
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const aboutHeading = document.querySelector('.about-typing');
+  if (aboutHeading) {
+    observer.observe(aboutHeading);
+  }
+});
 </script>
 </body>
 </html>
