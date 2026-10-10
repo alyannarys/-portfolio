@@ -202,23 +202,44 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   line-height: 1.08;
 }
 
-@keyframes aboutType {
-  0% {
-    clip-path: inset(0 100% 50% 0);
-  }
-  50% {
-    clip-path: inset(0 0 50% 0);
-  }
-  50.01% {
-    clip-path: inset(0 0 0 0);
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
+@keyframes typeFirstLine {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes typeSecondLine {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.about-typing {
+  clip-path: none;
 }
 
 .about-typing.is-visible {
-  animation: aboutType 2.5s steps(20, end) both;
+  animation: none;
+}
+
+.about-typing {
+  visibility: hidden;
+}
+
+.about-typing.is-visible {
+  visibility: visible;
+}
+
+.about-typing.is-visible .about-line-one {
+  animation: typeFirstLine 1.2s steps(8, end) both;
+}
+
+.about-typing.is-visible .about-line-two {
+  animation: typeSecondLine 1.2s steps(8, end) 1.2s both;
+}
+
+.about-line-one,
+.about-line-two {
+  display: block;
+  width: fit-content;
 }
 
 </style>
@@ -259,7 +280,10 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="flex: 1 1 300px; min-width: 0">
 <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">My story</p>
 <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">
-<span class="about-typing">A little <em style="display: block;">about me</em></span>
+<span class="about-typing">
+  <span class="about-line-one">A little</span>
+  <em class="about-line-two">about me</em>
+</span>
 </h2>
 <div style="margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap">
 <span style="border: 1px solid rgba(231,196,190,.45); border-radius: 999px; padding: 6px 16px; font-size: 14px">Since 2017</span>
