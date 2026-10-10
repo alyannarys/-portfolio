@@ -57,7 +57,10 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <section id="home" style="max-width: 1180px; margin: 0 auto; padding: 96px 24px 104px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
 <div class="rise" style="flex: 999 1 520px; min-width: 0">
 <p style="margin: 0 0 20px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Creative Virtual Assistant  ||  Design & Marketing Support</p>
-<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.02; letter-spacing: -0.03em; color: #1E3B30">Hello, I'm <em style="font-style: italic; color: #1E3B30">Alyanna!</em></h1>
+
+<h1 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.02; letter-spacing: -0.03em; color: #1E3B30">
+  <span class="typing-heading">Hello, I'm <em>Alyanna!</em></span>
+</h1>
 <div style="margin-top: 32px; max-width: 560px; display: flex; flex-direction: column; gap: 14px; color: #3D4D45">
 <p style="margin: 0">Based in Cavite, Philippines, I have 8 years of experience across graphic and web design, branding, content creation, digital marketing, and marketing automation.</p>
 <p style="margin: 0">As a Creative Virtual Assistant, I help businesses stay organized, manage day-to-day tasks, create engaging content, and streamline workflows so they can focus on growing their business. I also enjoy creating thoughtful, engaging content while keeping projects organized and moving forward.</p>
@@ -90,6 +93,35 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   to { transform: translateX(-50%); }
 }
 
+
+.typing-heading {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  max-width: 100%;
+  border-right: 3px solid #1E3B30;
+  animation:
+    typeHello 3s steps(19, end) forwards,
+    blinkCursor 0.75s step-end 5;
+}
+
+@keyframes typeHello {
+  from { width: 0; }
+  to { width: 19ch; }
+}
+
+@keyframes blinkCursor {
+  50% { border-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-heading {
+    width: auto;
+    animation: none;
+    border-right: none;
+  }
+}
 
 .hero-logo-marquee {
   width: 100%;
