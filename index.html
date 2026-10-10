@@ -202,19 +202,17 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   line-height: 1.08;
 }
 
-@keyframes aboutScrollReveal {
+@keyframes aboutType {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    clip-path: inset(0 100% 0 0);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
   }
 }
 
 .about-typing.is-visible {
-  animation: aboutScrollReveal 1.5s ease both;
+  animation: aboutType 2s steps(20, end) both;
 }
 
 </style>
