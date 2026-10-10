@@ -203,16 +203,22 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 }
 
 @keyframes aboutType {
-  from {
-    clip-path: inset(0 100% 0 0);
+  0% {
+    clip-path: inset(0 100% 50% 0);
   }
-  to {
+  50% {
+    clip-path: inset(0 0 50% 0);
+  }
+  50.01% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
     clip-path: inset(0 0 0 0);
   }
 }
 
 .about-typing.is-visible {
-  animation: aboutType 2s steps(20, end) both;
+  animation: aboutType 2.5s steps(20, end) both;
 }
 
 </style>
