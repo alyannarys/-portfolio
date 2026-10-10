@@ -633,25 +633,6 @@ const prevSlide = () => this.setState({ slideIndex: (this.state.slideIndex - 1 +
    }
 }
 </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const aboutHeading = document.querySelector('.about-typing');
-  if (aboutHeading) {
-    observer.observe(aboutHeading);
-  }
-});
-</script>
-
 </body>
 </html>
 </body>
