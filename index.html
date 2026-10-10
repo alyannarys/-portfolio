@@ -82,6 +82,87 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 </div>
 </section>
 
+
+<!-- ANIMATED TOOL LOGOS -->
+<style>
+@keyframes heroLogoScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.hero-logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0 48px;
+}
+
+.hero-logo-track {
+  display: flex;
+  width: max-content;
+  animation: heroLogoScroll 30s linear infinite;
+}
+
+.hero-logo-track:hover {
+  animation-play-state: paused;
+}
+
+.hero-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding-right: 48px;
+}
+
+.hero-logo-group img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.hero-logo-group img:hover {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo-track {
+    animation: none;
+  }
+}
+</style>
+
+<div class="hero-logo-marquee" aria-label="Tools I work with">
+  <div class="hero-logo-track">
+    <div class="hero-logo-group">
+      <img src="https://cdn.simpleicons.org/canva" alt="Canva">
+      <img src="https://cdn.simpleicons.org/figma" alt="Figma">
+      <img src="https://cdn.simpleicons.org/adobe" alt="Adobe">
+      <img src="https://cdn.simpleicons.org/capcut" alt="CapCut">
+      <img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot">
+      <img src="https://cdn.simpleicons.org/wordpress" alt="WordPress">
+      <img src="https://cdn.simpleicons.org/clickup" alt="ClickUp">
+      <img src="https://cdn.simpleicons.org/notion" alt="Notion">
+      <img src="https://cdn.simpleicons.org/slack" alt="Slack">
+      <img src="https://cdn.simpleicons.org/openai" alt="ChatGPT">
+    </div>
+
+    <div class="hero-logo-group" aria-hidden="true">
+      <img src="https://cdn.simpleicons.org/canva" alt="">
+      <img src="https://cdn.simpleicons.org/figma" alt="">
+      <img src="https://cdn.simpleicons.org/adobe" alt="">
+      <img src="https://cdn.simpleicons.org/capcut" alt="">
+      <img src="https://cdn.simpleicons.org/hubspot" alt="">
+      <img src="https://cdn.simpleicons.org/wordpress" alt="">
+      <img src="https://cdn.simpleicons.org/clickup" alt="">
+      <img src="https://cdn.simpleicons.org/notion" alt="">
+      <img src="https://cdn.simpleicons.org/slack" alt="">
+      <img src="https://cdn.simpleicons.org/openai" alt="">
+    </div>
+  </div>
+</div>
+
+  
 <!-- ABOUT -->
 <section id="about" style="background: #1E3B30; color: #EDE6DC">
 <div style="max-width: 1180px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 48px 72px; align-items: flex-start">
