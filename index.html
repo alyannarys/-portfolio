@@ -242,6 +242,72 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   width: fit-content;
 }
 
+/* Blinking typing cursor */
+@keyframes aboutCursorBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.about-line-one,
+.about-line-two {
+  position: relative;
+  width: fit-content;
+}
+
+/* Cursor on first line */
+.about-typing.is-visible .about-line-one::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  margin-left: 4px;
+  background: #F6F1EA;
+  vertical-align: -0.05em;
+  animation: aboutCursorBlink 0.8s step-end infinite;
+}
+
+/* Hide first cursor when second line starts */
+.about-typing.is-visible .about-line-one::after {
+  animation:
+    aboutCursorBlink 0.8s step-end 0s 1,
+    hideFirstCursor 0s linear 1.2s forwards;
+}
+
+@keyframes hideFirstCursor {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* Cursor on second line */
+.about-typing.is-visible .about-line-two::after {
+  content: "";
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  margin-left: 4px;
+  background: #F6F1EA;
+  vertical-align: -0.05em;
+  opacity: 0;
+  animation: showSecondCursor 0s linear 1.2s forwards,
+             aboutCursorBlink 0.8s step-end 1.2s infinite;
+}
+
+@keyframes showSecondCursor {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-typing.is-visible .about-line-one::after,
+  .about-typing.is-visible .about-line-two::after {
+    animation: none;
+    display: none;
+  }
+}
+  
 </style>
 
 <div class="hero-logo-marquee" aria-label="Tools I work with">
