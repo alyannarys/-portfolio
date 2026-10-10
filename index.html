@@ -90,16 +90,19 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   to { transform: translateX(-50%); }
 }
 
+
 .hero-logo-marquee {
   width: 100%;
   overflow: hidden;
-  padding: 0 0 48px;
+  padding: 24px 0 80px;
+  box-sizing: border-box;
+  background: #F6F1EA;
 }
 
 .hero-logo-track {
   display: flex;
   width: max-content;
-  animation: heroLogoScroll 30s linear infinite;
+  animation: heroLogoScroll 35s linear infinite;
 }
 
 .hero-logo-track:hover {
@@ -108,14 +111,18 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 .hero-logo-group {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
-  gap: 48px;
-  padding-right: 48px;
+  justify-content: space-around;
+  gap: 80px;
+  padding-right: 80px;
+  min-width: 100vw;
+  box-sizing: border-box;
 }
 
 .hero-logo-group img {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   object-fit: contain;
   opacity: 0.8;
   transition: opacity 0.2s;
@@ -137,7 +144,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   <div class="hero-logo-group">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/canva.svg" alt="Canva">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="Figma">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/adobe.svg" alt="Adobe">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/adobecreativecloud.svg" alt="Adobe Creative Cloud">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/capcut.svg" alt="CapCut">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/hubspot.svg" alt="HubSpot">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/wordpress.svg" alt="WordPress">
@@ -150,7 +157,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   <div class="hero-logo-group" aria-hidden="true">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/canva.svg" alt="">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg" alt="">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/adobe.svg" alt="">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/adobecreativecloud.svg" alt="">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/capcut.svg" alt="">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/hubspot.svg" alt="">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/wordpress.svg" alt="">
