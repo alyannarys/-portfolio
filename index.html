@@ -348,6 +348,44 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     display: none;
   }
 }
+
+/* Latest Work typing animation */
+.work-typing {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  padding-right: 8px;
+}
+
+@keyframes workType {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.work-typing.is-visible {
+  animation: workType 1.6s steps(11, end) both;
+}
+
+.work-typing.is-visible::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 3px;
+  height: 80%;
+  background: #1E3B30;
+  animation: blinkCursor 0.8s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-typing.is-visible {
+    animation: none;
+  }
+
+  .work-typing.is-visible::after {
+    display: none;
+  }
+}  
   
 </style>
 
@@ -467,7 +505,9 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; margin-bottom: 40px">
 <div>
 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6B4A46">Portfolio</p>
-<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">Latest Work</h2>
+<h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #1E3B30">
+  <span class="work-typing">Latest Work</span>
+</h2>
 </div>
 <div role="group" aria-label="Filter projects" style="display: flex; flex-wrap: wrap; gap: 8px">
 <sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
@@ -814,6 +854,40 @@ const prevSlide = () => this.setState({ slideIndex: (this.state.slideIndex - 1 +
   });
 })();
 </script>
+
+<script>
+(function () {
+  function setupWorkAnimation() {
+    const heading = document.querySelector('.work-typing');
+    if (!heading) return false;
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    observer.observe(heading);
+    return true;
+  }
+
+  window.addEventListener('load', function () {
+    if (!setupWorkAnimation()) {
+      const watcher = new MutationObserver(function () {
+        if (setupWorkAnimation()) watcher.disconnect();
+      });
+
+      watcher.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    }
+  });
+})();
+</script>  
   
 </body>
 </html>
