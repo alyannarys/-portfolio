@@ -139,6 +139,98 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     height: 18px;
   }
 }
+
+
+/* HORIZONTAL EXPERIENCE TIMELINE */
+
+.career-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 34px;
+}
+
+.career-step {
+  min-width: 0;
+  padding-right: 22px;
+}
+
+.career-track {
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+
+.career-dot {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  background: #F6F1EA;
+  border: 4px solid #829B8C;
+  border-radius: 50%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.career-step:last-child .career-dot {
+  background: #E7C4BE;
+}
+
+.career-line {
+  height: 2px;
+  flex: 1;
+  background: #829B8C;
+  transform-origin: left;
+  animation: career-draw 1.2s ease both;
+}
+
+.career-step:last-child .career-line {
+  display: none;
+}
+
+.career-details {
+  animation: career-appear .7s ease both;
+}
+
+.career-step:nth-child(2) .career-details {
+  animation-delay: .15s;
+}
+
+.career-step:nth-child(3) .career-details {
+  animation-delay: .3s;
+}
+
+.career-step:nth-child(4) .career-details {
+  animation-delay: .45s;
+}
+
+@keyframes career-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes career-appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+  .career-timeline-scroll {
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+
+  .career-timeline {
+    min-width: 680px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-line,
+  .career-details {
+    animation: none;
+  }
+}
   
 
 /* SERVICES ACCORDION */
@@ -678,6 +770,84 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <p style="margin: 0">Today, I bring all of those skills together to help businesses with both the creative work and the behind-the-scenes tasks that keep things moving.</p>
 </div>
 </div>
+
+ 
+<!-- EXPERIENCE TIMELINE -->
+<div style="margin-top: 72px">
+
+  <p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">
+    EXPERIENCE
+  </p>
+
+  <h2 style="margin: 0 0 12px; font-family: 'Fraunces', Georgia, serif; font-size: clamp(2rem, 3.6vw, 2.8rem); font-weight: 400; line-height: 1.15; color: #F6F1EA">
+    8 Years of Creative + Project Experience
+  </h2>
+
+  <div class="career-timeline-scroll">
+    <div class="career-timeline">
+
+      <!-- 2017 -->
+      <div class="career-step">
+        <div class="career-track">
+          <span class="career-dot"></span>
+          <span class="career-line"></span>
+        </div>
+        <div class="career-details">
+          <p style="color: #E7C4BE; font-size: 14px; font-weight: 600; margin: 10px 0">2017</p>
+          <h3 style="color: #F6F1EA; font-size: 16px; margin: 0 0 8px">Graphic Artist</h3>
+          <p style="color: #DCE5DE; font-size: 13px; margin: 0 0 6px">Tier One Entertainment</p>
+          <p style="color: #B8C8BE; font-size: 12px; line-height: 1.6; margin: 0">Where my creative career began.</p>
+        </div>
+      </div>
+
+      <!-- 2018-2020 -->
+      <div class="career-step">
+        <div class="career-track">
+          <span class="career-dot"></span>
+          <span class="career-line"></span>
+        </div>
+        <div class="career-details">
+          <p style="color: #E7C4BE; font-size: 14px; font-weight: 600; margin: 10px 0">2018–2020</p>
+          <h3 style="color: #F6F1EA; font-size: 16px; margin: 0 0 8px">Graphic Design Coordinator</h3>
+          <p style="color: #DCE5DE; font-size: 13px; margin: 0 0 6px">Carlton Glass Enterprise</p>
+          <p style="color: #B8C8BE; font-size: 12px; line-height: 1.6; margin: 0">Expanded into design coordination in Singapore.</p>
+        </div>
+      </div>
+
+      <!-- 2020-2025 -->
+      <div class="career-step">
+        <div class="career-track">
+          <span class="career-dot"></span>
+          <span class="career-line"></span>
+        </div>
+        <div class="career-details">
+          <p style="color: #E7C4BE; font-size: 14px; font-weight: 600; margin: 10px 0">2020–2025</p>
+          <h3 style="color: #F6F1EA; font-size: 16px; margin: 0 0 8px">Designer → Account Management Lead</h3>
+          <p style="color: #DCE5DE; font-size: 13px; margin: 0 0 6px">Deer Designer</p>
+          <p style="color: #B8C8BE; font-size: 12px; line-height: 1.6; margin: 0">Team leadership, client management, and operations.</p>
+        </div>
+      </div>
+
+      <!-- 2025-2026 -->
+      <div class="career-step">
+        <div class="career-track">
+          <span class="career-dot"></span>
+          <span class="career-line"></span>
+        </div>
+        <div class="career-details">
+          <p style="color: #E7C4BE; font-size: 14px; font-weight: 600; margin: 10px 0">2025–2026</p>
+          <h3 style="color: #F6F1EA; font-size: 16px; margin: 0 0 8px">Marketing Specialist</h3>
+          <p style="color: #DCE5DE; font-size: 13px; margin: 0 0 6px">MajorMajor Digital Marketing</p>
+          <p style="color: #B8C8BE; font-size: 12px; line-height: 1.6; margin: 0">Brought design, content, and marketing together.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- END EXPERIENCE TIMELINE -->
+ 
 </section>
 
 
@@ -980,35 +1150,6 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 </section>
 
-<!-- EXPERIENCE -->
-<section style="background: #1E3B30; color: #EDE6DC">
-<div style="max-width: 1180px; margin: 0 auto; padding: 104px 24px">
-<p style="margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #E7C4BE">Experience</p>
-<h2 style="margin: 0 0 56px; max-width: 720px; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.08; letter-spacing: -0.02em; color: #F6F1EA">8 Years of Creative + Project Experience</span></h2>
-<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 32px 24px">
-<li style="border-top: 2px solid #E7C4BE; padding-top: 20px">
-<div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: #E7C4BE; line-height: 1.1">2017</div>
-<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55">Started as a Graphic &amp; Web Designer</p>
-</li>
-<li style="border-top: 2px solid rgba(231,196,190,.4); padding-top: 20px">
-<div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: #E7C4BE; line-height: 1.1">2018–2020</div>
-<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55">Design, Print Production &amp; Marketing Support</p>
-</li>
-<li style="border-top: 2px solid rgba(231,196,190,.4); padding-top: 20px">
-<div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: #E7C4BE; line-height: 1.1">2020–2025</div>
-<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55">Graphic/Web Designer → Account Manager → Account Supervisor</p>
-</li>
-<li style="border-top: 2px solid rgba(231,196,190,.4); padding-top: 20px">
-<div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: #E7C4BE; line-height: 1.1">2025–2026</div>
-<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55">Marketing, Content &amp; Project Coordination Roles</p>
-</li>
-<li style="border-top: 2px solid #E7C4BE; padding-top: 20px">
-<div style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: #F6F1EA; line-height: 1.1"><em>Present</em></div>
-<p style="margin: 12px 0 0; font-size: 15px; line-height: 1.55">Multimedia Design, Content &amp; Marketing Support</p>
-</li>
-</ol>
-</div>
-</section>
 
 <!-- WHY -->
 <section style="max-width: 1180px; margin: 0 auto; padding: 104px 24px 88px">
