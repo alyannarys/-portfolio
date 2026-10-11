@@ -123,20 +123,32 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   color: #2A3A33;
 }
 
+
 .service-arrow {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  font-size: 30px;
-  line-height: 1;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 32px;
+  border: 2px solid #1E3B30;
+  border-radius: 999px;
+  background: transparent;
   color: #1E3B30;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
   text-decoration: none;
-  transition: transform 0.3s ease;
+  letter-spacing: 0.03em;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .service-arrow:hover {
-  transform: translateX(8px);
+  background: #1E3B30;
+  color: #F6F1EA;
+  transform: translateY(-3px);
 }
+
 
 @media (max-width: 800px) {
   .services-layout {
@@ -521,7 +533,8 @@ a{color:#1E3B30}a:hover{color:#0F2219}
             <li>Short-form Video Editing</li>
           </ul>
 
-          <a class="service-arrow" href="#work" onClick="{{ showDesign }}" aria-label="View design projects">➜</a>
+          <a class="service-arrow" href="#work" onClick="{{ showDesign }}" aria-label="View design projects">VIEW</a>
+
         </div>
       </details>
 
@@ -554,7 +567,9 @@ a{color:#1E3B30}a:hover{color:#0F2219}
             <li>Content Repurposing</li>
           </ul>
 
-          <a class="service-arrow" href="#work" onClick="{{ showContent }}" aria-label="View content projects">➜</a>
+          
+<a class="service-arrow" href="#work" onClick="{{ showContent }}" aria-label="View content projects">VIEW</a>
+
         </div>
       </details>
 
@@ -589,7 +604,9 @@ a{color:#1E3B30}a:hover{color:#0F2219}
             <li>General Marketing VA Support</li>
           </ul>
 
-          <a class="service-arrow" href="#work" onClick="{{ showAll }}" aria-label="View all projects">➜</a>
+          
+<a class="service-arrow" href="#work" onClick="{{ showAll }}" aria-label="View all projects">VIEW</a>
+
         </div>
       </details>
 
