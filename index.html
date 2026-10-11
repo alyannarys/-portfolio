@@ -14,7 +14,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&amp;family=DM+Sans:wght@400;500;600&amp;display=swap">
 <style>
 body{margin:0;background:#F6F1EA}
-html{scroll-behavior:smooth}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
 a{color:#1E3B30}a:hover{color:#0F2219}
 .nav-link{text-decoration:none;color:#2A3A33;padding:10px 4px;border-bottom:1.5px solid transparent;transition:border-color .2s,color .2s}
 .nav-link:hover{color:#1E3B30;border-bottom-color:#D49C95}
@@ -70,10 +73,13 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   }
 }
 
+
 .service-accordion::details-content {
   height: 0;
   overflow: hidden;
-  transition: height 0.45s ease, content-visibility 0.45s allow-discrete;
+  transition:
+    height 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    content-visibility 0.65s allow-discrete;
 }
 
 .service-accordion[open]::details-content {
@@ -89,14 +95,18 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 .service-content {
   padding: 0 0 32px;
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .service-accordion[open] .service-content {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: 0.12s;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .service-content {
     animation: none;
