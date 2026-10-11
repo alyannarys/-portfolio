@@ -88,27 +88,70 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   font-weight: 400;
 }
 
+
+.service-toggle {
+  margin-left: auto;
+  padding-left: 12px;
+  color: #1E3B30;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 400;
+  display: inline-block;
+  transition: transform 0.35s ease;
+}
+
 .service-toggle::before {
   content: "+";
 }
 
-.service-accordion[open] .service-toggle::before {
-  content: "−";
+.service-accordion[open] .service-toggle {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-accordion::details-content,
+  .service-toggle,
+  .service-content {
+    animation: none;
+    transition: none;
+  }
+
+  .service-content {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.service-accordion::details-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.45s ease, content-visibility 0.45s allow-discrete;
+}
+
+.service-accordion[open]::details-content {
+  height: auto;
+}
+
+@starting-style {
+  .service-accordion[open]::details-content {
+    height: 0;
+  }
 }
 
 .service-content {
   padding: 0 0 32px;
-  animation: serviceFade 0.4s ease both;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-@keyframes serviceFade {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.service-accordion[open] .service-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-content {
+    animation: none;
   }
 }
 
