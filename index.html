@@ -1436,7 +1436,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     <img src="{{ currentSlide }}" alt="{{ cur.name }}" style="width: 100%; height: 100%; object-fit: contain; display: block;">
   </sc-if>
 
-  <sc-if value="{{ cur.slides }}">
+  <sc-if condition="{{ cur.id !== 'ticktick-reel' && cur.slides && cur.slides.length > 1 }}">
     <div style="position: absolute; bottom: 12px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 16px;">
 
       <button type="button" onClick="{{ prevSlide }}" style="padding: 10px 18px; border: none; border-radius: 999px; background: #F6F1EA; color: #1E3B30; cursor: pointer; font-size: 16px;">&#8592;</button>
