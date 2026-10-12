@@ -1427,7 +1427,7 @@ result: 'A cohesive brand identity that reflects EverVibe’s mission to bring p
   line: 'Brand identity inspired by music, harmony, and meaningful moments.',
   image: 'Primony Cover.png',
   pdf: 'Primony Brand Guidelines.pdf',
-  slides: ['Primony Cover.png'],
+  slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`),
 
   challenge: 'Primony is a music-inspired brand built around the idea of Prime and Harmony. The challenge was to create a visual identity that reflects the power of music to enrich meaningful experiences, spark memories, and bring people together.',
 
