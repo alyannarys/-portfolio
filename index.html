@@ -1364,8 +1364,25 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px">
 <div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">The challenge</h4><p style="margin: 0; font-size: 15px">{{ cur.challenge }}</p></div>
 <div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">What I did</h4><p style="margin: 0; font-size: 15px">{{ cur.did }}</p></div>
-<div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Tools used</h4><p style="margin: 0; font-size: 15px">{{ cur.tools }}</p></div>
-<div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Final result</h4><p style="margin: 0; font-size: 15px">{{ cur.result }}</p></div>
+<div>
+  <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Final result</h4>
+  <p style="margin: 0; font-size: 15px">{{ cur.result }}</p>
+</div>
+
+<div>
+  <h4 style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Tools used</h4>
+
+  <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap">
+
+    <sc-for list="{{ cur.toolIcons }}" as="tool">
+      <img src="{{ tool.icon }}"
+           alt="{{ tool.name }}"
+           title="{{ tool.name }}"
+           style="width: 26px; height: 26px; object-fit: contain; background: transparent;">
+    </sc-for>
+
+  </div>
+</div>
 </div>
 </div>
 </div>
@@ -1388,6 +1405,11 @@ slides: Array.from({ length: 19 }, (_, i) => `evervibe-${i + 1}.png`),
         challenge: 'EverVibe is a brand dedicated to bringing older adults together through the power of music. It celebrates meaningful connections, shared memories, and a sense of belonging.',
 did: 'I developed a visual identity centered on warmth, harmony, and connection. The logo combines the letters E and V in a flowing design that resembles two people coming together, symbolizing unity and the shared joy of music.',
 tools: 'Adobe Illustrator, Adobe Photoshop, Figma',
+toolIcons: [
+  { name: 'Adobe Illustrator', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/adobeillustrator.svg' },
+  { name: 'Adobe Photoshop', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/adobephotoshop.svg' },
+  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg' }
+],
 result: 'A cohesive brand identity that reflects EverVibe’s mission to bring people together and celebrate life through music.' },
       { id: 'social', name: 'Social Media Content Kit', category: 'Content', line: 'Templated post series and a monthly content calendar.', bg: P, a: G, b: C, label: '#3E2522',
         challenge: '[What was the content goal or gap?]', did: '[Planning, templates, captions, scheduling — what you owned.]', tools: 'Canva, Figma, Metricool, Loomly', result: '[Engagement, consistency, or time saved.]' },
