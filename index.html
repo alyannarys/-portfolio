@@ -1503,7 +1503,7 @@ slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`),
       open: () => this.setState({ openId: p.id })
     });
     const f = this.state.filter;
-    const filters = ['All', 'Design', 'Web', 'Content', 'Marketing'].map((label) => {
+    const filters = ['All', 'Design', 'Web', 'Content', 'Marketing', 'Reels'].map((label) => {
       const on = label === f;
       return {
         label, pressed: on,
