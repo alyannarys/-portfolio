@@ -1468,33 +1468,59 @@ a{color:#1E3B30}a:hover{color:#0F2219}
       </a>
     </sc-if>
 
-  </div>
-
-  <p style="margin: 0 0 28px; color: #4F5F57;">{{ cur.line }}</p>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px">
-<div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">The challenge</h4><p style="margin: 0; font-size: 15px">{{ cur.challenge }}</p></div>
-<div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">What I did</h4><p style="margin: 0; font-size: 15px">{{ cur.did }}</p></div>
-<div>
-  <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Final result</h4>
-  <p style="margin: 0; font-size: 15px">{{ cur.result }}</p>
-
+  
 </div>
 
+<p style="margin: 0 0 28px; color: #4F5F57;">{{ cur.line }}</p>
+
+<!-- TICKTICK ONLY -->
+<sc-if condition="{{ cur.id === 'ticktick-reel' }}">
+  <div style="margin-bottom: 28px;">
+    <h4 style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">
+      Behind the Reel
+    </h4>
+    <p style="margin: 0; font-size: 15px; line-height: 1.8;">
+      TickTick reached out to me to create a short-form video review of their productivity app. I wanted the video to feel natural and relatable rather than like a typical promotional ad, so I focused on showing how the app fits into everyday routines. From planning the flow and recording the clips to editing everything in CapCut, I kept the pacing simple and engaging while highlighting the app's features.
+    </p>
+  </div>
+</sc-if>
+
+<!-- OTHER PROJECTS ONLY -->
+<sc-if condition="{{ cur.id !== 'ticktick-reel' }}">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px; margin-bottom: 28px;">
+
+    <div>
+      <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">The challenge</h4>
+      <p style="margin: 0; font-size: 15px;">{{ cur.challenge }}</p>
+    </div>
+
+    <div>
+      <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">What I did</h4>
+      <p style="margin: 0; font-size: 15px;">{{ cur.did }}</p>
+    </div>
+
+    <div>
+      <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">Final result</h4>
+      <p style="margin: 0; font-size: 15px;">{{ cur.result }}</p>
+    </div>
+
+  </div>
+</sc-if>
+
+<!-- TOOLS USED FOR ALL PROJECTS -->
 <div>
-  <h4 style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Tools used</h4>
+  <h4 style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">Tools used</h4>
 
-  <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap">
-
+  <div style="display: flex; align-items: center; gap: 18px; flex-wrap: wrap;">
     <sc-for list="{{ cur.toolIcons }}" as="tool">
       <img src="{{ tool.icon }}"
            alt="{{ tool.name }}"
            title="{{ tool.name }}"
            style="width: 26px; height: 26px; object-fit: contain; background: transparent;">
     </sc-for>
-
   </div>
 </div>
+
 </div>
 </div>
 </div>
