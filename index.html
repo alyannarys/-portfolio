@@ -1475,7 +1475,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 
 <!-- BEHIND THE REEL -->
-<sc-if condition="{{ cur.id === 'ticktick-reel' }}">
+<sc-if value="{{ cur.reelDescription }}">
   <div style="margin-bottom: 28px;">
     <h4 style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">
       Behind the Reel
@@ -1543,6 +1543,7 @@ class Component extends DCLogic {
   
 {
   id: 'ticktick-reel',
+reelDescription: 'TickTick reached out to me to create a short-form video review of their productivity app. I wanted the video to feel natural and relatable rather than like a typical promotional ad, so I focused on showing how the app fits into everyday routines. From planning the flow and recording the clips to editing everything in CapCut, I kept the pacing simple and engaging while highlighting the app’s features.',
   name: 'TickTick App Review',
   category: 'Reels',
   subcategory: 'App Review',
