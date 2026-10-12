@@ -1473,17 +1473,19 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 <p style="margin: 0 0 28px; color: #4F5F57;">{{ cur.line }}</p>
 
-<!-- TICKTICK ONLY -->
+
+<!-- BEHIND THE REEL -->
 <sc-if condition="{{ cur.id === 'ticktick-reel' }}">
   <div style="margin-bottom: 28px;">
     <h4 style="margin: 0 0 12px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30;">
       Behind the Reel
     </h4>
-    <p style="margin: 0; font-size: 15px; line-height: 1.8;">
+    <p style="margin: 0; font-size: 15px; line-height: 1.8; color: #4F5F57;">
       TickTick reached out to me to create a short-form video review of their productivity app. I wanted the video to feel natural and relatable rather than like a typical promotional ad, so I focused on showing how the app fits into everyday routines. From planning the flow and recording the clips to editing everything in CapCut, I kept the pacing simple and engaging while highlighting the app's features.
     </p>
   </div>
 </sc-if>
+
 
 <!-- OTHER PROJECTS ONLY -->
 <sc-if condition="{{ cur.id !== 'ticktick-reel' }}">
