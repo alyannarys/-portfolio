@@ -1341,40 +1341,66 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 <!-- PROJECT MODAL -->
 <sc-if value="{{ hasOpen }}" hint-placeholder-val="{{ false }}">
+
 <div style="position: fixed; inset: 0; z-index: 50; background: rgba(15,34,25,0.55); display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box">
+
+<!-- FLOATING X BUTTON -->
+<div style="position: absolute; top: 4%; left: 50%; transform: translateX(-50%); width: calc(100% - 40px); max-width: 1100px; height: 0; z-index: 10; pointer-events: none;">
+  <button type="button"
+          aria-label="Close project"
+          onClick="{{ close }}"
+          style="position: absolute; top: 0; right: 0; transform: translate(25%, -25%); width: 44px; height: 44px; border-radius: 999px; border: none; background: #F6F1EA; color: #1E3B30; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.2); pointer-events: auto;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18"></path>
+    </svg>
+  </button>
+</div>
+
+
 <div role="dialog" aria-modal="true" aria-label="{{ cur.name }}" style="background: #F6F1EA; border-radius: 28px; width: 100%; max-width: 1100px; max-height: 92vh; overflow-y: auto; box-shadow: 0 30px 80px -30px rgba(0,0,0,.5)">
+
+<!-- PROJECT GALLERY -->
 <div style="{{ cur.heroStyle }}">
-<sc-if value="{{ cur.image }}">
-<img src="{{ currentSlide }}" alt="{{ cur.name }}" style="width: 100%; height: 100%; object-fit: contain; display: block;">
-<sc-if value="{{ cur.slides }}">
-<div style="position: absolute; bottom: 12px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 16px;">
-<button type="button" onClick="{{ prevSlide }}" style="padding: 10px 18px; border: none; border-radius: 999px; background: #F6F1EA; color: #1E3B30; cursor: pointer; font-size: 16px;">&#8592;</button>
-<button type="button" onClick="{{ nextSlide }}" style="padding: 10px 18px; border: none; border-radius: 999px; background: #F6F1EA; color: #1E3B30; cursor: pointer; font-size: 16px;">&#8594;</button>
-</div>
-</sc-if>
-</sc-if>
-<button type="button" aria-label="Close project" onClick="{{ close }}" style="position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 999px; border: none; background: #F6F1EA; color: #1E3B30; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
-</div>
-<div style="padding: 32px clamp(22px, 4vw, 44px) 40px">
-<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B4A46">{{ cur.category }} / {{ cur.subcategory }}</span>
 
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin: 8px 0;">
+  <sc-if value="{{ cur.image }}">
+    <img src="{{ currentSlide }}" alt="{{ cur.name }}" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+  </sc-if>
 
-  <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.1; color: #1E3B30">
-    {{ cur.name }}
-  </h3>
+  <sc-if value="{{ cur.slides }}">
+    <div style="position: absolute; bottom: 12px; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 16px;">
 
-  <sc-if condition="{{ cur.id === 'primony' }}">
-  <a href="./Primony%20Brand%20Guidelines.pdf"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="display: inline-block; padding: 12px 20px; background: #1E3B30; color: #FFFFFF; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap;">
-    View Brand Guidelines PDF ↗
-  </a>
-</sc-if>
+      <button type="button" onClick="{{ prevSlide }}" style="padding: 10px 18px; border: none; border-radius: 999px; background: #F6F1EA; color: #1E3B30; cursor: pointer; font-size: 16px;">&#8592;</button>
+
+      <button type="button" onClick="{{ nextSlide }}" style="padding: 10px 18px; border: none; border-radius: 999px; background: #F6F1EA; color: #1E3B30; cursor: pointer; font-size: 16px;">&#8594;</button>
+
+    </div>
+  </sc-if>
 
 </div>
-<p style="margin: 0 0 28px; color: #4F5F57">{{ cur.line }}</p>
+
+<!-- PROJECT DETAILS -->
+<div style="padding: 32px clamp(22px, 4vw, 44px) 40px;">
+
+  <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6B4A46;">
+    {{ cur.category }} / {{ cur.subcategory }}
+  </span>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin: 8px 0;">
+
+    <h3 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.1; color: #1E3B30;">
+      {{ cur.name }}
+    </h3>
+
+    <sc-if condition="{{ cur.id === 'primony' }}">
+      <a href="./Primony%20Brand%20Guidelines.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 20px; background: #1E3B30; color: #FFFFFF; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap;">
+        View Brand Guidelines PDF ↗
+      </a>
+    </sc-if>
+
+  </div>
+
+  <p style="margin: 0 0 28px; color: #4F5F57;">{{ cur.line }}</p>
+
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px">
 <div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">The challenge</h4><p style="margin: 0; font-size: 15px">{{ cur.challenge }}</p></div>
 <div><h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">What I did</h4><p style="margin: 0; font-size: 15px">{{ cur.did }}</p></div>
