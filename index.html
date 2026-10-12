@@ -1367,6 +1367,15 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div>
   <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Final result</h4>
   <p style="margin: 0; font-size: 15px">{{ cur.result }}</p>
+
+  <sc-if condition="{{ cur.id === 'primony' }}">
+    <a href="./Primony%20Brand%20Guidelines.pdf"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="display: inline-block; margin-top: 14px; padding: 10px 18px; background: #E7C4BE; color: #1E3B30; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none;">
+      View Brand Guidelines ↗
+    </a>
+  </sc-if>
 </div>
 
 <div>
