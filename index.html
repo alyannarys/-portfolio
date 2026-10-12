@@ -1363,14 +1363,14 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     {{ cur.name }}
   </h3>
 
-  <sc-if condition="{{ cur.pdf }}">
-    <a href="{{ cur.pdf }}"
-       target="_blank"
-       rel="noopener noreferrer"
-       style="display: inline-block; padding: 12px 20px; background: #1E3B30; color: #FFFFFF; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap;">
-      View Brand Guidelines PDF ↗
-    </a>
-  </sc-if>
+  <sc-if condition="{{ cur.id === 'primony' }}">
+  <a href="./Primony%20Brand%20Guidelines.pdf"
+     target="_blank"
+     rel="noopener noreferrer"
+     style="display: inline-block; padding: 12px 20px; background: #1E3B30; color: #FFFFFF; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap;">
+    View Brand Guidelines PDF ↗
+  </a>
+</sc-if>
 
 </div>
 <p style="margin: 0 0 28px; color: #4F5F57">{{ cur.line }}</p>
@@ -1381,14 +1381,6 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   <h4 style="margin: 0 0 6px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #1E3B30">Final result</h4>
   <p style="margin: 0; font-size: 15px">{{ cur.result }}</p>
 
-  <sc-if condition="{{ cur.pdf }}">
-  <a href="{{ cur.pdf }}"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="display: inline-block; margin-top: 14px; padding: 10px 18px; background: #E7C4BE; color: #1E3B30; border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none;">
-    View Brand Guidelines ↗
-  </a>
-</sc-if>
 </div>
 
 <div>
@@ -1438,9 +1430,9 @@ result: 'A cohesive brand identity that reflects EverVibe’s mission to bring p
   name: 'Primony Brand Identity',
   category: 'Design',
   line: 'Brand identity inspired by music, harmony, and meaningful moments.',
-  image: 'Primony Cover.png',
-  pdf: 'Primony Brand Guidelines.pdf',
-  slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`),
+  image: 'primony cover.png',
+pdf: 'Primony Brand Guidelines.pdf',
+slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`),
 
   challenge: 'Primony is a music-inspired brand built around the idea of Prime and Harmony. The challenge was to create a visual identity that reflects the power of music to enrich meaningful experiences, spark memories, and bring people together.',
 
