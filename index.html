@@ -1667,7 +1667,7 @@ toolIcons: [
   subcategory: 'UI & Website Design',
   line: 'A collection of website mockups and visual layouts created for different clients and projects over the years.',
   image: 'webdesign.png',
-slides: ['webdesign.png'],
+  slides: ['webdesign.png'],
   bg: '#E7C4BE',
   challenge: 'Create visually appealing, user-friendly website designs that reflect each brand’s identity and requirements.',
   did: 'Designed website mockups, page layouts, and visual elements, focusing on hierarchy, consistency, and user experience. These designs were prepared as visual references for developers to implement.',
@@ -1715,7 +1715,9 @@ slides: ['webdesign.png'],
     const all = projects.map(look);
     const visible = f === 'All' ? all : all.filter((p) => p.category === f);
     const cur = all.find((p) => p.id === this.state.openId) || all[0];
-    const currentSlide = cur.slides ? cur.slides[this.state.slideIndex] : cur.image;
+    const currentSlide = cur.slides && cur.slides.length > 0
+  ? cur.slides[this.state.slideIndex] || cur.image
+  : cur.image;
     const nextSlide = () => this.setState({ slideIndex: (this.state.slideIndex + 1) % (cur.slides?.length || 1) });
 const prevSlide = () => this.setState({ slideIndex: (this.state.slideIndex - 1 + (cur.slides?.length || 1)) % (cur.slides?.length || 1) });
     return {
