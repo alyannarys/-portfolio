@@ -1418,6 +1418,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 <div role="dialog" aria-modal="true" aria-label="{{ cur.name }}" style="background: #F6F1EA; border-radius: 28px; width: 100%; max-width: 1100px; max-height: 92vh; overflow-y: auto; box-shadow: 0 30px 80px -30px rgba(0,0,0,.5)">
 
 <!-- PROJECT GALLERY -->
+<sc-if value="{{ cur.showMainGallery }}">
 <div style="{{ cur.heroStyle }}">
   
   
@@ -1448,6 +1449,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
   </sc-if>
 
 </div>
+</sc-if>
 
 <!-- PROJECT DETAILS -->
 <div style="padding: 32px clamp(22px, 4vw, 44px) 40px;">
@@ -1473,6 +1475,59 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 <p style="margin: 0 0 28px; color: #4F5F57;">{{ cur.line }}</p>
 
+<!-- BRAND IDENTITY COLLECTION -->
+<sc-if value="{{ cur.brands }}">
+  <div style="display: flex; flex-direction: column; gap: 48px; margin: 32px 0 40px;">
+
+    <sc-for list="{{ cur.brands }}" as="brand">
+
+      <section style="border-top: 1px solid #D9CBB8; padding-top: 32px;">
+
+        <h4 style="font-family: 'Fraunces', Georgia, serif; font-size: 30px; font-weight: 400; color: #1E3B30; margin: 0 0 12px;">
+          {{ brand.name }}
+        </h4>
+
+        <p style="font-size: 15px; line-height: 1.8; color: #4F5F57; margin: 0 0 12px;">
+          {{ brand.description }}
+        </p>
+
+        <p style="font-size: 15px; line-height: 1.8; color: #4F5F57; margin: 0 0 12px;">
+          {{ brand.approach }}
+        </p>
+
+        <p style="font-size: 15px; line-height: 1.8; color: #4F5F57; margin: 0 0 24px;">
+          {{ brand.result }}
+        </p>
+
+        <sc-if value="{{ brand.pdf }}">
+          <a href="{{ brand.pdf }}" target="_blank" rel="noopener noreferrer"
+             style="display: inline-block; margin-bottom: 24px; padding: 12px 20px; background: #1E3B30; color: white; border-radius: 999px; text-decoration: none; font-size: 13px; font-weight: 600;">
+            View Brand Guidelines PDF ↗
+          </a>
+        </sc-if>
+
+        <div style="display: flex; gap: 16px; overflow-x: auto; padding: 4px 0 20px; scroll-snap-type: x proximity;">
+
+          <sc-for list="{{ brand.slides }}" as="slide">
+            <img src="{{ slide }}"
+                 alt="{{ brand.name }} brand identity slide"
+                 loading="lazy"
+                 style="width: 260px; max-height: 340px; height: auto; object-fit: contain; flex-shrink: 0; scroll-snap-align: start; border-radius: 12px; background: #FFFFFF;">
+          </sc-for>
+
+        </div>
+
+        <p style="font-size: 12px; color: #6B4A46; margin: 8px 0 0;">
+          Scroll sideways to explore the brand →
+        </p>
+
+      </section>
+
+    </sc-for>
+
+  </div>
+</sc-if>
+
 
 <!-- BEHIND THE REEL -->
 <sc-if value="{{ cur.reelDescription }}">
@@ -1488,7 +1543,7 @@ a{color:#1E3B30}a:hover{color:#0F2219}
 
 
 <!-- OTHER PROJECTS ONLY -->
-<sc-if condition="{{ cur.id !== 'ticktick-reel' }}">
+<sc-if value="{{ cur.showStandardDetails }}">
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 32px; margin-bottom: 28px;">
 
     <div>
@@ -1562,73 +1617,47 @@ toolIcons: [
 },
 
 
-      { id: 'brand', name: 'Evervibe Brand Identity', category: 'Design', subcategory: 'Brand Identity', line: 'Brand identity and visual direction for Evervibe.', image: 'evervibe cover.png', image: 'evervibe cover.png',
-slides: Array.from({ length: 19 }, (_, i) => `evervibe-${i + 1}.png`),
-        challenge: 'EverVibe is a brand dedicated to bringing older adults together through the power of music. It celebrates meaningful connections, shared memories, and a sense of belonging.',
-did: 'I developed a visual identity centered on warmth, harmony, and connection. The logo combines the letters E and V in a flowing design that resembles two people coming together, symbolizing unity and the shared joy of music.',
-tools: 'Adobe Illustrator, Adobe Photoshop, Figma',
-toolIcons: [
-  { name: 'Adobe Illustrator', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg' },
-  { name: 'Adobe Photoshop', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg' },
-  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg' }
-],
-result: 'A cohesive brand identity that reflects EverVibe’s mission to bring people together and celebrate life through music.' },
-  {
-  id: 'primony',
-  name: 'Primony Brand Identity',
-  category: 'Design', subcategory: 'Brand Identity',
-  line: 'Brand identity inspired by music, harmony, and meaningful moments.',
-  image: 'Primony Cover.png',
-pdf: 'Primony Brand Guidelines.pdf',
-slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`),
-
-  challenge: 'Primony is a music-inspired brand built around the idea of Prime and Harmony. The challenge was to create a visual identity that reflects the power of music to enrich meaningful experiences, spark memories, and bring people together.',
-
-  did: 'I developed a visual identity featuring a sleek letter P integrated with headphones, symbolizing the connection between music and life’s most memorable moments. The design brings together simplicity, harmony, and a sense of joy.',
-
+      
+{
+  id: 'brand-collection',
+  name: 'Brand Identity Collection',
+  category: 'Design',
+  subcategory: 'Brand Identity',
+  line: 'A collection of three music-inspired brand identities exploring connection, harmony, and joy.',
+  image: 'evervibe cover.png',
+  bg: '#E7C4BE',
   tools: 'Adobe Illustrator, Adobe Photoshop, Figma',
-
   toolIcons: [
     { name: 'Adobe Illustrator', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg' },
     { name: 'Adobe Photoshop', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg' },
     { name: 'Figma', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg' }
   ],
-
-  result: 'A distinctive brand identity that combines music, connection, and harmony, capturing Primony’s mission to make life’s meaningful moments unforgettable.'
-},
-  
-{
-  id: 'sunnysound',
-  name: 'Sunny Sound Brand Identity',
-  category: 'Design', subcategory: 'Brand Identity',
-  line: 'A music-inspired identity celebrating joy, connection, and life’s golden years.',
-  image: 'sunnysound Cover.png',
-
-  slides: Array.from({ length: 20 }, (_, i) => `sunnysound-${i + 1}.png`),
-
-  challenge: 'Sunny Sound is dedicated to enriching the lives of older adults through music. The challenge was to create a welcoming visual identity that reflects warmth, nostalgia, positivity, and the power of sound to bring people together.',
-
-  did: 'I developed a brand identity that combines the warmth of the sun with the rhythm of music. The logo features a circular, speaker-inspired design with radiating rays, symbolizing sound, connection, energy, and the golden moments of life.',
-
-  tools: 'Adobe Illustrator, Adobe Photoshop, Figma',
-
-  toolIcons: [
+  brands: [
     {
-      name: 'Adobe Illustrator',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg'
+      name: 'EverVibe',
+      description: 'EverVibe is dedicated to bringing older adults together through music, shared memories, and meaningful connections.',
+      approach: 'I developed a warm, harmonious identity with a flowing EV logo resembling two people coming together.',
+      result: 'A cohesive identity celebrating connection, belonging, and the joy of music.',
+      slides: Array.from({ length: 19 }, (_, i) => `evervibe-${i + 1}.png`)
     },
     {
-      name: 'Adobe Photoshop',
-      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg'
+      name: 'Primony',
+      description: 'Inspired by Prime and Harmony, Primony explores the power of music to enrich meaningful experiences and memories.',
+      approach: 'I created a sleek letter P integrated with headphones, combining simplicity, harmony, and joy.',
+      result: 'A distinctive visual identity connecting music with life’s memorable moments.',
+      pdf: 'Primony%20Brand%20Guidelines.pdf',
+      slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`)
     },
     {
-      name: 'Figma',
-      icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v15/icons/figma.svg'
+      name: 'Sunny Sound',
+      description: 'Sunny Sound celebrates the golden years through music, warmth, nostalgia, and positivity.',
+      approach: 'I combined the warmth of the sun with the rhythm of music through a circular, speaker-inspired logo with radiating rays.',
+      result: 'An uplifting identity expressing warmth, energy, and connection.',
+      slides: Array.from({ length: 20 }, (_, i) => `sunnysound-${i + 1}.png`)
     }
-  ],
-
-  result: 'A cohesive and uplifting brand identity that blends music, warmth, and connection, reflecting Sunny Sound’s mission to celebrate life’s meaningful moments and bring joy to older adults.'
+  ]
 },
+
 
       { id: 'social', name: 'Social Media Content Kit', category: 'Content', line: 'Templated post series and a monthly content calendar.', bg: P, a: G, b: C, label: '#3E2522',
         challenge: '[What was the content goal or gap?]', did: '[Planning, templates, captions, scheduling — what you owned.]', tools: 'Canva, Figma, Metricool, Loomly', result: '[Engagement, consistency, or time saved.]' },
@@ -1643,6 +1672,8 @@ slides: Array.from({ length: 14 }, (_, i) => `primony-${i + 1}.png`),
     ];
     const look = (p) => ({
       ...p,
+      showMainGallery: !p.brands,
+      showStandardDetails: !p.brands && p.id !== 'ticktick-reel',
       imgStyle: 'position:absolute;inset:0;background:' + p.bg + ';',
       heroStyle: 'position:relative;height:min(65vh,650px);overflow:hidden;border-radius:28px 28px 0 0;background:' + p.bg + ';',
       shapeA: 'position:absolute;left:14%;top:16%;width:52%;height:58%;border-radius:14px;background:' + p.a + ';box-shadow:0 18px 40px -20px rgba(0,0,0,.35);',
