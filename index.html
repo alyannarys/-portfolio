@@ -1479,6 +1479,31 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     {{ cur.simpleDescription }}
   </p>
 </sc-if>
+
+  <!-- VETTA SPORTS COLLECTION -->
+<sc-if value="{{ cur.socialImages }}">
+  <div style="margin-bottom: 40px;">
+    <h4 style="font-size: 20px; color: #1E3B30; margin: 0 0 10px;">
+      Social Media & Advertising Graphics
+    </h4>
+
+    <p style="color: #4F5F57; font-size: 14px; margin: 0 0 20px;">
+      A selection of promotional graphics, seasonal content,
+      and paid advertising creatives.
+    </p>
+
+    <div style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px;">
+      <sc-for list="{{ cur.socialImages }}" as="img">
+        <img
+          src="{{ img }}"
+          alt="Vetta Sports social media design"
+          loading="lazy"
+          style="width: 320px; height: 320px; object-fit: contain; flex-shrink: 0; border-radius: 12px; background: #F6F1EA;"
+        />
+      </sc-for>
+    </div>
+  </div>
+</sc-if>
   
 <!-- BRAND IDENTITY COLLECTION -->
 <sc-if value="{{ cur.brands }}">
@@ -1721,7 +1746,7 @@ toolIcons: [
     const look = (p) => ({
       ...p,
       showMainGallery: !p.brands,
-      showStandardDetails: !p.brands && p.id !== 'ticktick-reel' && p.id !== 'web-design-collection',
+      showStandardDetails: !p.brands && p.id !== 'ticktick-reel' && p.id !== 'web-design-collection' && p.id !== 'vetta-collection',
       imgStyle: 'position:absolute;inset:0;background:' + p.bg + ';',
       heroStyle: 'position:relative;height:min(65vh,650px);overflow:hidden;border-radius:28px 28px 0 0;background:' + p.bg + ';',
       shapeA: 'position:absolute;left:14%;top:16%;width:52%;height:58%;border-radius:14px;background:' + p.a + ';box-shadow:0 18px 40px -20px rgba(0,0,0,.35);',
