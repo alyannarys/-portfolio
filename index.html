@@ -1535,6 +1535,32 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     </div>
   </div>
 </sc-if>
+
+<!-- VETTA PROMOTIONAL VIDEO -->
+<sc-if value="{{ cur.promoVideo }}">
+  <div style="margin-bottom: 40px;">
+
+    <h4 style="font-size: 20px; color: #1E3B30; margin: 0 0 10px;">
+      Promotional Video
+    </h4>
+
+    <p style="color: #4F5F57; font-size: 14px; margin: 0 0 20px;">
+      A landscape promotional video created to showcase
+      Vetta Sports programs and offerings.
+    </p>
+
+    <video
+      controls
+      preload="metadata"
+      playsinline
+      style="width: 100%; max-width: 800px; aspect-ratio: 16/9; object-fit: contain; background: #1E3B30; border-radius: 12px; display: block;"
+    >
+      <source src="{{ cur.promoVideo }}" type="video/mp4" />
+      Your browser does not support video playback.
+    </video>
+
+  </div>
+</sc-if>
   
 <!-- BRAND IDENTITY COLLECTION -->
 <sc-if value="{{ cur.brands }}">
