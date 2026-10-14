@@ -1829,7 +1829,16 @@ toolIcons: [
         style: 'min-height:44px;padding:0 20px;border-radius:999px;cursor:pointer;font:600 14px \'DM Sans\',\'Helvetica Neue\',sans-serif;border:1.5px solid #1E3B30;' + (on ? 'background:#1E3B30;color:#F6F1EA;' : 'background:transparent;color:#1E3B30;')
       };
     });
-    const all = projects.map(look);
+    const completedProjectIds = [
+  'brand-collection',
+  'web-design-collection',
+  'ticktick-reel',
+  'vetta-collection'
+];
+
+const all = projects
+  .filter(p => completedProjectIds.includes(p.id))
+  .map(look);
     const visible = f === 'All' ? all : all.filter((p) => p.category === f);
     const cur = all.find((p) => p.id === this.state.openId) || all[0];
     const currentSlide = cur.slides && cur.slides.length > 0
