@@ -1504,6 +1504,37 @@ a{color:#1E3B30}a:hover{color:#0F2219}
     </div>
   </div>
 </sc-if>
+
+<!-- VETTA REELS & MOTION GRAPHICS -->
+<sc-if value="{{ cur.reels }}">
+  <div style="margin-bottom: 40px;">
+
+    <h4 style="font-size: 20px; color: #1E3B30; margin: 0 0 10px;">
+      Reels & Motion Graphics
+    </h4>
+
+    <p style="color: #4F5F57; font-size: 14px; margin: 0 0 20px;">
+      A selection of short-form promotional videos and
+      animated content created for Vetta Sports and Frontenac.
+    </p>
+
+    <div style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px;">
+
+      <sc-for list="{{ cur.reels }}" as="reel">
+        <video
+          controls
+          preload="metadata"
+          playsinline
+          style="width: 240px; max-height: 430px; aspect-ratio: 9/16; object-fit: contain; background: #1E3B30; border-radius: 12px; flex-shrink: 0;"
+        >
+          <source src="{{ reel }}" type="video/mp4" />
+          Your browser does not support video playback.
+        </video>
+      </sc-for>
+
+    </div>
+  </div>
+</sc-if>
   
 <!-- BRAND IDENTITY COLLECTION -->
 <sc-if value="{{ cur.brands }}">
