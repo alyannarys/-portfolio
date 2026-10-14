@@ -1600,6 +1600,26 @@ class Component extends DCLogic {
   renderVals() {
     const G = '#1E3B30', P = '#E7C4BE', C = '#F6F1EA', S = '#D9CBB8';
     const projects = [
+  {
+  id: 'vetta-collection',
+  name: 'Vetta Sports & Frontenac',
+  category: 'Design',
+  subcategory: 'Social Media, Advertising & Video',
+  image: 'vetta-assets/VS socials-1.png',
+  bg: '#F6F1EA',
+  line: 'A collection of social media graphics, paid advertising creatives, motion graphics, and promotional videos created for Vetta Sports and Frontenac Racquet Club.',
+  socialImages: Array.from(
+    { length: 22 },
+    (_, i) => `vetta-assets/VS socials-${i + 1}.png`
+  ),
+  reels: Array.from(
+    { length: 6 },
+    (_, i) => `vetta-assets/VS-reel-${i + 1}.mp4`
+  ),
+  promoVideo: 'vetta-assets/VS promo vid.mp4',
+  tools: 'Canva, Adobe Creative Suite, CapCut',
+  toolIcons: []
+},
   
 {
   id: 'ticktick-reel',
